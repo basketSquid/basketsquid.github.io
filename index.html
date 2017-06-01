@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World</title>
+</head>
+<body>
+
+<div style="text-align:center;">
+<div id="productsTable" class="hbox" data-markdown style="display: inline-block;">
+
+| | | | |
+| --- | --- | --- | --- |
+| ![](rsz_mdril1.jpg) | ![](rsz_ets2.jpg) | ![](rsz_mdril2.jpg) | ![](rsz_rep1.jpg) | 
+| ![](rsz_ti1.jpg) | ![](rsz_rent2.jpg) | ![](rsz_personnelp1.jpg) | ![](rsz_rent1.jpg) | 
+| ![](rsz_etsdril.jpg) | ![](rsz_rental.jpg) | ![](rsz_ti1.jpg) | ![](rsz_rep2.jpg) | 
+
+</div>
+</div>
+
+<div style="background-color: #333333;">
+<div id="productsOverview" class="hbox" data-markdown style="width: 80%; margin: auto;">
+
+# Product Overview
+
+---
+
+### Master D.R.I.L
+
+is the industry's only software designed specifically to integrate all aspects of enterprise management for Oilwell Drilling and Well Service companies. 
+
+### WebDRIL ETS
+
+provides oilwell drilling and well servicing companies with a valuable bridge between field operations and the office information system. 
+
+### The Personnel and Safety application
+
+is designed to provide office personnel and human resource managers with up-to-date information on all aspects of field personnel and safety. 
+
+### Rental Management System
+
+is an enterprise-enabled system that provides customers with a friendly environment to manage rental assists. 
+
+### The Tubular Inspection application
+
+is designed to provide oilfield drilling companies with a convenient and dynamic environment to manage tubular inspections. 
+
+### ETS Reports System
+
+provides users with a powerful, environmentally-friendly tool for creating and managing reports related to all aspects of oilwell drilling and well-servicing.
+
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.0/showdown.js"></script>
+<script>
+(function boom(){
+  
+	var before = $('#productsTable').html();
+	var after = before.replace(/\!\[\]\(/g, '![](http://avan-tech.ca/images/products/thums/');
+	$('#productsTable').html(after);
+
+  [].forEach.call( document.querySelectorAll('[data-markdown]'), function  fn(elem){
+	var options = {tables: true};
+	var html = (new showdown.Converter(options)).makeHtml(elem.innerHTML);
+    elem.innerHTML = html;
+  });
+
+}());
+</script>
+
+<style>
+#productsOverview
+{
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+#productsOverview > h1
+{
+	text-align: center;
+}
+#productsOverview > h3
+{
+	color: #07adff;
+	margin-bottom: 2px;
+}
+#productsOverview > h3 + p
+{
+	margin-top: 2px;
+	color: #CCCCCC;
+}
+</style>
+
+</body>
+</html>
